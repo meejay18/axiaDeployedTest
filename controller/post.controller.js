@@ -8,7 +8,7 @@ import fs from 'fs/promises'
 export const createPost = async (req, res) => {
   const body = req.body
   const file = req.files
-  const id = req.user
+  const { id } = req.user
   console.log(file)
 
   // console.log(file['previewPic'][0].path)
