@@ -23,7 +23,7 @@ const moreField = upload.fields([
 ])
 
 route.post('/', createUser)
-route.get('/getallusers', getAllUsers)
+route.get('/', getAllUsers)
 route.get('/getoneuser/:id', getOneUser)
 route.put('/updateuser/:id', updateUser)
 route.post('/loginuser', loginUser)
