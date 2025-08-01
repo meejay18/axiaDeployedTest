@@ -124,10 +124,10 @@ export const getUserPosts = async (req, res) => {
 }
 
 export const getSinglePost = async (req, res) => {
-  const {postId} = req.params
+  const { postId } = req.params
 
   try {
-    const post = await postModel.find(postId)
+    const post = await postModel.findById(postId)
     return res.status(200).json({
       message: 'Post found',
       data: post,
