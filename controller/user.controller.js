@@ -103,8 +103,12 @@ export const getAllUsers = async (req, res) => {
 }
 export const getOneUser = async (req, res) => {
   const { id } = req.params
+  console.log(req.params.id)
+
   try {
     const user = await userModel.findById(id).populate('kyc').populate('posts')
+    console.log(user)
+
     //  .populate('books');
     return res.status(200).json({
       message: 'Users successfully gotten',
