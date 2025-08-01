@@ -50,45 +50,7 @@ export const createUser = async (req, res, next) => {
 
 export const getAllUsers = async (req, res) => {
   try {
-    // const users = await userModel
-    //  .find({ gender: 'male', age: { $gt: 20, $lt: 50 } })
-    //  //  .limit(1)
-    //  .select({ name: 1, _id: 0, gender: 1, email: 1, age: 1 })
-    //  .sort({ age: -1 });
-
-    // const users = await userModel
-    //  .find()
-    //  .where('age')
-    //  .gt(20)
-    //  .where('gender')
-    //  .equals('male')
-    //  .where('age')
-    //  .lt(60);
-
-    const users = await userModel.aggregate([
-      {
-        $match: {
-          gender: 'male',
-          //  age: { $gt: 20, $lt: 50 },
-        },
-      },
-      {
-        $limit: 6,
-      },
-      {
-        $project: {
-          name: 1,
-          age: 1,
-          _id: 0,
-          gender: 1,
-        },
-      },
-      {
-        $sort: {
-          age: -1,
-        },
-      },
-    ])
+    const users = await userModel.find()
 
     return res.status(200).json({
       message: 'Users successfully gotten',
